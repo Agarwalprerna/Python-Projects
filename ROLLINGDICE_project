@@ -1,0 +1,27 @@
+import random 
+
+def roll_dice():
+    dice_number =random.randint(1,6)       #random library generates pseudo random numbers 
+    return dice_number 
+
+print("----------welcome to dice rolling simulator---------")
+
+while 1:
+    choice = input("whouild like to roll a dice ( y/n)")
+
+    if 'y' in choice.lower():
+       
+       print("rolling dice")
+       x = roll_dice()
+       print("dice has the number: " , x)
+
+    elif "n" in choice.lower():
+        print(" exit...")
+        break 
+    else:
+        print("invalid input ")
+
+print(" END ")   
+
+
+
