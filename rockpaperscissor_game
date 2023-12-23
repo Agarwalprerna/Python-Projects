@@ -1,0 +1,50 @@
+import random
+
+choices = ["rock" ,"paper" ,"scissor"]
+positive_result = [["rock","scissor"],["rock","paper"],["paper","scissor"]]
+negative_result = [["scissor",'rock'],['paper','rock'],['scissor','paper']]
+
+def get_computer_move():
+    move = random.choices(choices)
+    return move
+
+def find_winner(user_move, computer_move):
+    if[user_move,computer_move] in positive_result:
+        return 1
+    elif[user_move,computer_move] in negative_result:
+        return -1
+    return 0
+
+print("==========welcome to ROCK PAPER SCISSOR GAME===========")
+while 1:
+    choice = input("do you wanna play(y/n): ")
+    if 'y' in choice.lower():
+        computer_move = get_computer_move()
+        while 1:
+            move = input("selecta move( 'r' for ROCK  'p' for PAPER 's' for SCISSSOR )").lower()
+            print(f"computer's move: {computer_move}")
+            if 'r' in move or 'p' in move or 's' in move:
+                if 'r' in move:
+                    user_move = "rock"
+                elif 'p' in move:
+                    user_move ="paper" 
+                elif 's'  in move:
+                    user_move = "scissor" 
+                print(f"user's move: {user_move}") 
+                output = find_winner(user_move ,computer_move)  
+
+                if output == 1:
+                    print("user won!")
+                elif output == -1:
+                    print("computer won! ") 
+                else:
+                    print("tie")
+                break  
+            else:
+                print("invlalid input...please try again") 
+
+    elif 'n' in choice.lower():
+        print("exiting...")
+        break
+    else:
+        print("enter the correct input")   
