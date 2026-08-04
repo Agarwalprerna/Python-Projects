@@ -1,0 +1,46 @@
+
+#3. Rock Paper scissors
+
+import random
+
+choices = ["r" , "p","s"]
+
+while True:
+  user = input("ROCK,PAPER,SCISSORS?(r/p/s): ").lower()
+
+  if user not in choices:
+    print("invalid choice! ")
+    continue      #when invalid choice prints then futher code part will execute so we use continue to skip the rest of the code and go back to the start of the loop
+
+  print("you chose: ",user)
+
+  computer = random.choice(choices)
+
+  print("Computer's chose: " , computer)   # or print(f"computer's choice: {computer}")
+
+  if user == computer:
+    print("it is a tie")
+  elif user == "r" and computer == "s":
+    print("you win")
+  elif user == "p" and computer == "r":
+    print("you win")
+  elif user == "s" and computer == "p":
+    print("you win")   
+  else:
+    print("you lose")
+
+
+    #better way to rite conditions
+    
+     elif(
+        (user == "r" and computer == "s") or 
+        (user == "p" and computer == "r") or
+        (user == "s" and computer == "p")
+    )
+    
+
+  ans = input("Do you want to play again? (y/n): ").lower()
+  if ans == "n":
+    break
+    
+
