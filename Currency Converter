@@ -1,0 +1,54 @@
+
+#4. Currency Converter
+
+def converter(source_currency, target_currency, user):
+    
+  if source_currency == "USD" and target_currency == "EUR":
+    value = float(user)*0.85
+    print(f'{user} USD is equal to {value} EUR')
+
+  elif source_currency == "USD" and target_currency == "GBP":
+    value = float(user)*0.75
+    print(f'{user} USD is equal to {value} GBP')
+
+  elif source_currency == "EUR" and target_currency == "USD":
+    value = float(user)*1.18
+    print(f'{user} EUR is equal to {value} USD')  
+
+  elif source_currency == "EUR" and target_currency == "GBP":
+    value = float(user)*0.88
+    print(f'{user} EUR is equal to {value} GBP')  
+
+  elif source_currency == "GBP" and target_currency == "USD": 
+    value = float(user)*1.33
+    print(f'{user} GBP is equal to {value} USD')
+
+  elif source_currency == "GBP" and target_currency == "EUR":  
+    value = float(user)*1.14
+    print(f'{user} GBP is equal to {value} EUR')
+
+  else:
+    print("Invalid currency conversion. Please enter valid source and target currencies (USD, EUR, GBP)")
+
+
+          
+
+while True:
+
+  choice = ['USD', 'EUR' , 'GBP']
+
+  print("Welcome to the Currency Converter!")
+  user = input("enter the amount: ")
+  source_currency = input("Enter the source currency (USD, EUR, GBP): ").upper()
+  target_currency = input("Enter the target currency (USD, EUR, GBP): ").upper()
+
+  if (source_currency not in choice) or (target_currency not in choice):
+    print("Enter available Currencies only")
+    continue
+
+  value = converter(source_currency, target_currency, user)
+  print("thank you for using the currency converter  ")
+  ans = input("Do you want to convert again? (y/n): ").lower()
+  
+  if ans == 'n':
+    break
