@@ -1,0 +1,38 @@
+
+#2 Number Guessing Game
+
+#Guess the number between 1 and 100: 67
+# Too high!
+#Guess the number between 1 and 100: 5
+# Too low!
+# Guess the number between 1 and 100: 42
+# Congrtulations! You guessed the number in 3 tries
+
+#$Algorithm
+#Generate a random number
+#ask the user to guess the number
+#if not a valid number -> print an error message
+# if random number < guess -> print too high
+# if random number > guess -> print too low
+# else print well done
+
+
+import random
+
+random_number = random.randint(1, 100)
+
+while True:
+  try:
+    user_guess = int(input('Guess the number between 1 and 100: '))
+
+    if user_guess > random_number:
+      print("Too high!")  
+    elif user_guess < random_number:
+      print("Too low!")
+    else:
+      print("Congratulations! You guessed the number.")  
+      break  
+
+  except ValueError:
+    print("Invalid input. Please enter a valid number.")
+      
