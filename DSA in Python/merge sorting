@@ -1,0 +1,53 @@
+
+#Merge Sort
+def merge_sort(arr):
+
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr)//2
+
+    left_arr = arr[:mid]
+    right_arr = arr[mid:]
+
+    print(f"splitting Array: {arr}")
+    print(f"left {left_arr}")
+    print(f" right {right_arr}")
+
+    sorted_left = merge_sort(left_arr)
+    sorted_right = merge_sort(right_arr)
+
+    sorted_result = combine(sorted_left,sorted_right)
+
+    print(f"merged back: {sorted_result}")
+
+    return sorted_result
+
+def combine(left,right):
+
+    final_list = []
+    left_ptr = 0
+    right_ptr = 0
+
+
+    while left_ptr < len(left) and right_ptr < len(right):
+
+        left_item = left[left_ptr]
+        right_item = right[right_ptr]
+
+        if left_item <= right_item:
+            final_list.append(left_item)
+            left_ptr = left_ptr + 1
+        else:
+            final_list.append(right_item)
+            right_ptr += 1    
+
+    remaining_left = left[left_ptr:]
+    remaining_right = right[right_ptr:]
+
+    final_list = final_list + remaining_left + remaining_right
+
+    return final_list
+
+arr = [38,27,43,10]
+print("merge sort: ", merge_sort(arr))
