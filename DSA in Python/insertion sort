@@ -1,0 +1,16 @@
+# Insertion Sort
+def insertion_sort(arr):
+    for i in range(1,len(arr)):
+        current = arr[i]
+        prev_indx = i-1
+
+        while prev_indx >= 0 and arr[prev_indx] >current:
+            arr[prev_indx + 1] = arr[prev_indx]
+            prev_indx -= 1
+
+        arr[prev_indx + 1] = current
+                                                                   
+    return arr
+
+arr = [34, 67, 12, 89, 45, 23, 90]
+print("array after insertion sort is ", insertion_sort(arr))
