@@ -1,0 +1,34 @@
+'''
+#Bubble Sort
+#time complexity is O(n^2) and space complexity is O(1)
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        for j in range(0, len(arr)-1):
+            if arr[j] > arr[j+1]:
+                arr[j] , arr[j+1] = arr[j+1], arr[j]
+    return arr            
+
+arr = [34, 67, 12, 89, 45, 23, 90]
+print("array after bubble sort is ", bubble_sort(arr))
+'''
+
+'''
+
+#time complexity O(n)
+def bubble_sort_opimized(arr):
+    for i in range(len(arr)):
+        swapped = False
+        for j in range(0,len(arr)-i-1):
+            if arr[j] >arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+
+        if not swapped:
+            break    #algorithm will break if the array is already sorted
+
+    return arr  
+
+  
+
+arr = ["abce" , "xyz" ,"bcd"] 
+print("array after bubble sort is " , bubble_sort_opimized(arr))
