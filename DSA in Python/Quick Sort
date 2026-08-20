@@ -1,0 +1,22 @@
+#Quick Sort
+
+def Quick_sort(arr):
+
+    if len(arr) <= 1:   #if not written then index out of range error will occur when the array is empty
+        return arr
+
+    pivot = arr[-1]  #last element is taken as pivot
+    smaller = []
+    larger = []
+
+    for i in range(0, len(arr)-1):
+        if arr[i] < pivot:
+            smaller.append(arr[i])
+        else:
+            larger.append(arr[i])    
+
+    return Quick_sort(smaller) + [pivot] + Quick_sort(larger)
+
+arr = [850,200,520,100,430]
+print("array after quick sort is ", Quick_sort(arr))
+
